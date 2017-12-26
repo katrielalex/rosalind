@@ -6,20 +6,20 @@ import sys
 
 def fib(n, k):
     pairs = 1
-    for i in range(n):
-        pairs += k * pairs
+    infants = 0
+    for i in range(n-1):
+        pairs, infants = pairs + infants, k * pairs
     return pairs
 
 
 def main(args):
-    s = args.seq
-    print(fib(s))
+    print(fib(args.n, args.k))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("n")
-    parser.add_argument("k")
+    parser.add_argument("n", type=int)
+    parser.add_argument("k", type=int)
     args = parser.parse_args()
 
     sys.exit(main(args))
